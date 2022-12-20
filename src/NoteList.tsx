@@ -10,28 +10,14 @@ import {
   Modal,
 } from "react-bootstrap";
 import ReactSelect from "react-select";
-import { Tag } from "./App";
 import { useMemo, useState } from "react";
 import styles from "./NoteList.module.css";
+import { EditTagsModalProps, SimplifiedNote, Tag } from "./types/types";
 // import NoteCard, { SimplifiedNote } from "./NoteCard";
-
-type SimplifiedNote = {
-  tags: Tag[];
-  title: string;
-  id: string;
-};
 
 type NoteListProps = {
   availableTags: Tag[];
   notes: SimplifiedNote[];
-  onUpdateTag: (id: string, label: string) => void;
-  onDeleteTag: (id: string) => void;
-};
-
-type EditTagsModalProps = {
-  show: boolean;
-  availableTags: Tag[];
-  handleClose: () => void;
   onUpdateTag: (id: string, label: string) => void;
   onDeleteTag: (id: string) => void;
 };
