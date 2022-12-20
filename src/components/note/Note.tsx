@@ -1,4 +1,4 @@
-import { useNote } from "./NoteLayout";
+import { useNote } from "../../pages/NoteLayout";
 import { Link, useNavigate } from "react-router-dom";
 import { Stack, Row, Col, Badge, Button } from "react-bootstrap";
 import ReactMarkDown from "react-markdown";

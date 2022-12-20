@@ -3,7 +3,7 @@ import { Form, Stack, Row, Col, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import CreatableReactSelect from "react-select/creatable";
 import { v4 as uuidV4 } from "uuid";
-import { NoteData, Tag } from "./types/types";
+import { NoteData, Tag } from "../../types/types";
 
 type NoteFormProps = {
   onSubmit: (data: NoteData) => void;

@@ -1,20 +1,10 @@
 import { Link } from "react-router-dom";
-import {
-  Row,
-  Col,
-  Stack,
-  Button,
-  Form,
-  Card,
-  Badge,
-  Modal,
-} from "react-bootstrap";
+import { Row, Col, Stack, Button, Form } from "react-bootstrap";
 import ReactSelect from "react-select";
 import { useMemo, useState } from "react";
-import { EditTagsModalProps, SimplifiedNote, Tag } from "./types/types";
-import NoteCard from "./NoteCard";
-import EditTagsModal from "./EditTagModal";
-// import NoteCard from "./NoteCard";
+import { SimplifiedNote, Tag } from "../types/types";
+import NoteCard from "../components/note/NoteCard";
+import EditTagsModal from "../components/tags/EditTagModal";
 
 type NoteListProps = {
   availableTags: Tag[];

@@ -1,4 +1,4 @@
-import { EditTagsModalProps } from "./types/types";
+import { EditTagsModalProps } from "../../types/types";
 import { Modal, Form, Stack, Row, Col, Button } from "react-bootstrap";
 
 function EditTagsModal({
