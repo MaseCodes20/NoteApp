@@ -3,8 +3,8 @@ import { Row, Col, Stack, Button, Form } from "react-bootstrap";
 import ReactSelect from "react-select";
 import { useMemo, useState } from "react";
 import { SimplifiedNote, Tag } from "../types/types";
-import NoteCard from "../components/note/NoteCard";
 import EditTagsModal from "../components/tags/EditTagModal";
+import FilteredNotes from "../components/note/FilteredNotes";
 
 type NoteListProps = {
   availableTags: Tag[];
@@ -96,11 +96,7 @@ function NoteList({
       </Form>
 
       <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
-        {filteredNotes.map((note) => (
-          <Col key={note.id}>
-            <NoteCard id={note.id} title={note.title} tags={note.tags} />
-          </Col>
-        ))}
+        <FilteredNotes filteredNotes={filteredNotes} />
       </Row>
 
       <EditTagsModal
