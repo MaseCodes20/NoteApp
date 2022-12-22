@@ -1,11 +1,10 @@
-import React from "react";
 import {
   useParams,
   Navigate,
   Outlet,
   useOutletContext,
 } from "react-router-dom";
-import { Note } from "../App";
+import { Note } from "../types/types";
 
 type NoteLayoutProps = {
   notes: Note[];

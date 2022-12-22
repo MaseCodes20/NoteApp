@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Routes, Route, Navigate } from "react-router-dom";
 import NewNote from "./pages/NewNote";
@@ -10,8 +10,11 @@ import NoteLayout from "./pages/NoteLayout";
 import Note from "./components/note/Note";
 import EditNote from "./components/note/EditNote";
 import { NoteData, RawNote, Tag } from "./types/types";
+import "./app.css";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
   const [notes, setNotes] = useLocalStorage<RawNote[]>("Notes", []);
   const [tags, setTags] = useLocalStorage<Tag[]>("Tags", []);
 
@@ -71,8 +74,16 @@ function App() {
     });
   };
 
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("white");
+    }
+  };
+
   return (
-    <Container className="my-4">
+    <Container className={`App my-4 ${theme}`}>
       <Routes>
         <Route
           path="/"

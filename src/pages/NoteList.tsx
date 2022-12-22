@@ -45,6 +45,8 @@ function NoteList({
 
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
+            <Button variant="info">theme</Button>
+
             <Link to="new">
               <Button variant="primary">Create</Button>
             </Link>
