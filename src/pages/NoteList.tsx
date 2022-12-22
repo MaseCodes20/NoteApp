@@ -5,12 +5,15 @@ import { useMemo, useState } from "react";
 import { SimplifiedNote, Tag } from "../types/types";
 import EditTagsModal from "../components/tags/EditTagModal";
 import FilteredNotes from "../components/note/FilteredNotes";
+import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 
 type NoteListProps = {
   availableTags: Tag[];
   notes: SimplifiedNote[];
+  theme: string;
   onUpdateTag: (id: string, label: string) => void;
   onDeleteTag: (id: string) => void;
+  toggleTheme: () => void;
 };
 
 function NoteList({
@@ -18,6 +21,8 @@ function NoteList({
   notes,
   onUpdateTag,
   onDeleteTag,
+  toggleTheme,
+  theme,
 }: NoteListProps) {
   const [title, setTitle] = useState("");
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
@@ -45,7 +50,9 @@ function NoteList({
 
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
-            <Button variant="info">theme</Button>
+            <Button onClick={() => toggleTheme()} variant="light">
+              {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonFill />}
+            </Button>
 
             <Link to="new">
               <Button variant="primary">Create</Button>

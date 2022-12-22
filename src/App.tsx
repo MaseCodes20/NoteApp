@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { Routes, Route, Navigate } from "react-router-dom";
 import NewNote from "./pages/NewNote";
@@ -78,9 +78,13 @@ function App() {
     if (theme === "light") {
       setTheme("dark");
     } else {
-      setTheme("white");
+      setTheme("light");
     }
   };
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
     <Container className={`App my-4 ${theme}`}>
@@ -93,6 +97,8 @@ function App() {
               availableTags={tags}
               onUpdateTag={updateTag}
               onDeleteTag={deleteTag}
+              theme={theme}
+              toggleTheme={toggleTheme}
             />
           }
         />
