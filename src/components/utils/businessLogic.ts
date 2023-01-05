@@ -24,3 +24,7 @@ export const updateNote = (
     }
   });
 };
+
+export const deleteNote = (id: string, prevNotes: RawNote[]): RawNote[] => {
+  return prevNotes.filter((note) => note.id !== id);
+};

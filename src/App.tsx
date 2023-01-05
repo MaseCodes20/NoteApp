@@ -11,7 +11,11 @@ import Note from "./components/note/Note";
 import EditNote from "./components/note/EditNote";
 import { NoteData, RawNote, Tag } from "./types/types";
 import "./app.css";
-import { createNote, updateNote } from "./components/utils/businessLogic";
+import {
+  createNote,
+  deleteNote,
+  updateNote,
+} from "./components/utils/businessLogic";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -37,7 +41,7 @@ function App() {
   };
 
   const onDeleteNote = (id: string) => {
-    setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
+    setNotes((prevNotes) => deleteNote(id, prevNotes));
   };
 
   const addTag = (tag: Tag) => {
