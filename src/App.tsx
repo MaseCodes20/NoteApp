@@ -14,6 +14,7 @@ import "./app.css";
 import {
   createNote,
   deleteNote,
+  removeTag,
   tagUpdate,
   updateNote,
 } from "./components/utils/businessLogic";
@@ -54,9 +55,7 @@ function App() {
   };
 
   const deleteTag = (id: string) => {
-    setTags((prevTags) => {
-      return prevTags.filter((tag) => tag.id !== id);
-    });
+    setTags((prevTags) => removeTag(prevTags, id));
   };
 
   const toggleTheme = () => {

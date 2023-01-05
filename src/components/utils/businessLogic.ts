@@ -42,3 +42,7 @@ export const tagUpdate = (
     }
   });
 };
+
+export const removeTag = (prevTags: Tag[], id: string) => {
+  return prevTags.filter((tag) => tag.id !== id);
+};
