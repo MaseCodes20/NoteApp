@@ -11,6 +11,7 @@ import Note from "./components/note/Note";
 import EditNote from "./components/note/EditNote";
 import { NoteData, RawNote, Tag } from "./types/types";
 import "./app.css";
+import { createNote } from "./components/utils/businessLogic";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -28,12 +29,7 @@ function App() {
   }, [notes, tags]);
 
   const onCreateNote = (data: NoteData) => {
-    setNotes((prevNotes) => {
-      return [
-        ...prevNotes,
-        { ...data, id: uuidV4(), tagIds: tags.map((tag) => tag.id) },
-      ];
-    });
+    setNotes((prevNotes) => createNote(prevNotes, data, tags));
   };
 
   const onUpdateNote = (id: string, { tags, ...data }: NoteData) => {
