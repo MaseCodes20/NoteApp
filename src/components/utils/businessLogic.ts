@@ -10,3 +10,17 @@ export const createNote = (
     { ...data, id: crypto.randomUUID(), tagIds: tags.map((tag) => tag.id) },
   ];
 };
+
+export const updateNote = (
+  prevNotes: RawNote[],
+  id: string,
+  { tags, ...data }: NoteData
+): RawNote[] => {
+  return prevNotes.map((note) => {
+    if (note.id === id) {
+      return { ...note, ...data, tagIds: tags.map((tag) => tag.id) };
+    } else {
+      return note;
+    }
+  });
+};
