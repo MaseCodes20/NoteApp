@@ -28,3 +28,17 @@ export const updateNote = (
 export const deleteNote = (id: string, prevNotes: RawNote[]): RawNote[] => {
   return prevNotes.filter((note) => note.id !== id);
 };
+
+export const tagUpdate = (
+  prevTags: Tag[],
+  id: string,
+  label: string
+): Tag[] => {
+  return prevTags.map((tag) => {
+    if (tag.id === id) {
+      return { ...tag, label };
+    } else {
+      return tag;
+    }
+  });
+};

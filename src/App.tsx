@@ -14,6 +14,7 @@ import "./app.css";
 import {
   createNote,
   deleteNote,
+  tagUpdate,
   updateNote,
 } from "./components/utils/businessLogic";
 
@@ -49,15 +50,7 @@ function App() {
   };
 
   const updateTag = (id: string, label: string) => {
-    setTags((prevTags) => {
-      return prevTags.map((tag) => {
-        if (tag.id === id) {
-          return { ...tag, label };
-        } else {
-          return tag;
-        }
-      });
-    });
+    setTags((prevTags) => tagUpdate(prevTags, id, label));
   };
 
   const deleteTag = (id: string) => {
